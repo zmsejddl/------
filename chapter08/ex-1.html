@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1번. 4
+        2번. 1
+        */
+       try {
+        console.log('try 구문이다')
+        const array = ['apple', 'banana', 'orange']
+        array.forEach(() => {
+            throw '예외를 강제로 발생시키다'
+        })
+       } catch(e) {
+        console.log('catch 구문이다')
+       } finally {
+        console.log('finally 구문이다')
+       }
+    </script>
+</body>
+</html>

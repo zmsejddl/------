@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //16-6
+        //lottery.html
+        //1~45까지 정수 추출
+        //let num = Math.floor(Math.random()*45 + 1)
+        //console.log(num)
+        //6개를 뽑아서 배열에 저장
+        //중복 번호가 뽑힐수도 있다
+        
+        //1~45배열에서 splice()메소드를 이용해서
+        //뽑으면서 배열에서 없애주기 때문에 중복이 해결
+
+        //랜덤으로 6개를 뽑는데 중복을 검사해서 
+        //중복된 번호가 뽑히면 더 뽑겠다
+        let nums = []
+        let b = true
+        while(nums.length < 6) {
+            let num = Math.floor(Math.random()*45 + 1)
+            //중복 검사            
+            for(let n of nums) {
+                if(n===num) {
+                    b = false
+                }
+            }
+            if(b) {
+                nums.push(num)
+                b=!b
+            } else {
+                b=!b
+            }            
+        }
+        console.log(nums)
+        //정렬
+        nums = nums.sort((a,b) => a - b)
+        console.log(nums)
+
+        //맛집 추천 프로그램
+        let list = ['태태태', '고향맛', '서면고기집', '삼오정', 
+    '기승전골 서면', '홍두깨칼국수', '3파운드', '음주양식당 오스테리아 어부',
+'동명횟집', '믿음직화', '오보레', '마당집', '수타생왕돈까스', '팔미분식',
+'먹고식당', '화전국수', '마마된장 서면점', '솥이랑', '곁집', '한끼맛있다 서면점',
+'짚신매운갈비찜 서면롯데점']
+        console.log(list.length)//21
+        let recom = []
+        let recoms = [...new Set(recom)]
+        for(let i = 0; i < 3; i++) {
+                recom.push(list[Math.floor(Math.random()*21)])
+                
+            }
+        console.log(recom)
+    </script>
+</body>
+</html>

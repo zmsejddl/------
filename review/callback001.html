@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //18-4
+        //매일 걸음수 저장하는 프로그램
+        class WalkCount {
+            #date
+            #walkCnt
+            get date() {
+                return date
+            }
+            set date(date) {
+                console.log('set date() 함수가 호출되었다')
+                this.#date = date
+            }
+            get walkCnt() {
+                return walkCnt
+            }
+            set walkCnt(walkCnt) {
+                this.#walkCnt = walkCnt
+            }
+            //출력
+            printWC() {
+                console.log('-------날짜-------')
+                console.log(this.#date)
+                console.log('-------걸음 수-------')
+                console.log(this.#walkCnt)
+            }
+            //콜백 출력 함수, 오버라이딩 느낌
+            printWithCallback(callback) {
+                callback(this.#date, this.#walkCnt)
+            }
+        }
+
+        const ex = {
+            'date' : '4월 3일',
+            'walkCnt' : 10000 
+        }
+        //온점찍고 속성에 직접접근해서 쓰지만 get set 함수가 호출된다
+
+        //걸음수를 날짜로 저장하는 함수
+        const wcArr = []
+        function createWc(date, walkCnt) {
+            const wc = new WalkCount()
+            wc.date = new Date(date)
+            wc.walkCnt = walkCnt
+            wcArr.push(wc)
+        }
+        function getWCs() {
+            for(const wc of wcArr) {
+                wc.printWC()
+            }
+        }
+        const wc1 = createWc('2024-04-01', 5001)
+        const wc2 = createWc('2024-04-02', 5002)
+        const wc3 = createWc('2024-04-03', 5003)
+        //이번달 걸음수 출력
+        getWCs()
+
+        //콜백 함수 사용
+        const wc4 = wcArr[0]
+        wc4.printWC()
+        wc4.printWithCallback((d,w) => {
+            console.log(`날짜: ${d}`)
+            console.log(`걸음수: ${w}`)
+        })
+        const numbers = [1,2,3]
+        numbers.forEach(v => {
+            console.log(v)
+        })
+        wc4.printWithCallback((d,w) => {
+            console.log(`날짜:::::::: ${d}`)
+            console.log(`걸음수:::::::: ${w}`)
+        })
+        setInterval(()=>{
+            console.log('3초 마다 실행')
+        },3*1000)
+        //{...객체}
+        console.log(WalkCount)
+        //[...배열]
+        for(const wc of wcArr) {
+            console.log(wc)
+        }
+    </script>
+</body>
+</html>

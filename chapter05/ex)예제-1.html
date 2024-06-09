@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        function multiplyAll(a, b) {
+            let multiple = 1
+            for(let i = a; i <= b; i++) {
+                multiple *= i
+            }
+            return multiple
+        }
+        console.log(multiplyAll(1,5))
+
+        /*
+        2
+        const max = function(...array){
+            let output = array[0]
+            for(const i of array) {
+                if(output < i) {
+                    output = i
+                }
+            }
+            return output
+        }
+        console.log(max(20,44,23,64))
+        */
+       /*
+        function s1(...items) {
+        console.log(items)
+       }
+        const max = function(...array) {
+            
+            if(Array.isArray(array)){
+                    s1(...array)
+            }
+            let output = array[0] 
+            for(const items of array) {
+                
+                
+                if(output < items) {
+                    output = items
+                }
+                
+            }
+            return output
+        }
+        console.log(max([1,2,3,4]))
+        console.log(max(1,2,3,4))
+        */
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Parent {
+        //     test() {
+        //         console.log('Parent.test() 메소드')
+        //     }
+        // }
+
+        // class ChildA extends Parent {
+        //     test() {
+        //         super.test()
+        //         console.log('ChildA.test() 메소드')
+        //     }
+        // }
+
+        // class ChildB extends Parent {
+        //     test() {
+        //         console.log('ChildB.test() 메소드')
+        //         super.test()
+        //     }
+        // }
+        // new ChildA().test()
+        // new ChildB().test()
+        class Function {
+            
+            constructor(num) {
+                this.num = num
+                if(num === 1) {
+                    getCall()
+                } else if(num === 2) {
+                    Function().getOrder()
+                } else if(num === 3) {
+                    Function().getReview()
+                } else {
+                    throw '오류 발생'
+                }
+            }
+
+            
+
+            getCall() {
+                console.log('가게에 전화를 걸다')
+            }
+
+            getOrder() {
+                console.log('가게에 주문을 하다')
+            }
+
+            getReview() {
+                console.log('가게에 리뷰를 달다')
+            }
+        }
+        const functions = new Function()
+        console.log(functions(1))
+    </script>
+</body>
+</html>
